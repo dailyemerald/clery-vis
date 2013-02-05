@@ -1,0 +1,23 @@
+{
+	oregon: {
+		weapon: [0, 2, 1, 0, 2, 8],
+		drugs: [102, 92, 76, 89, 128, 213],
+		liquor: [165, 134, 174, 192, 244, 227],
+		burglary: [32, 33, 14, 25, 14, 35],
+		sexual_assault: [4, 3, 8, 6, 7, 8],
+		assault: [5, 5, 2, 0, 2, 3],
+		vehicle_theft: [12, 2, 10, 10, 2, 3],
+		arson: [2, 1, 1, 5, 18, 0]	
+	},
+	osu: {},
+	stanford: {},
+	cal: {},
+	ucla: {},
+	usc: {},
+	utah: {},
+	colorado: {},
+	asu: {},
+	arizona: {},
+	washington: {},
+	wsu: {}
+}
