@@ -36,17 +36,18 @@
 		// d3 vars
 		var	num_layers = 8,
 			num_samples = 6,
-			margin = { top: 40, right: 10, bottom: 20, left: 10 },
+			margin = { top: 40, right: 10, bottom: 20, left: 30 },
 			width = 1100 - margin.left - margin.right,
 			height = 573 - margin.top - margin.bottom,
 			stack = d3.layout.stack(),
 			layers = stack(d3.range(num_layers).map(function() { return parseCrimeData(num_samples); })),
 			yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); }),
 			yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); }),
-			x = d3.scale.ordinal().domain(d3.range(num_samples)).rangeRoundBands([0, width], .08),
+			x = d3.scale.ordinal().domain(d3.range(2006, 2006 + num_samples)).rangeRoundBands([0, width], .08),
 			y = d3.scale.linear().domain([0, yStackMax]).range([height, 0]),
 			color = d3.scale.ordinal().domain([0, num_layers - 1]).range(colors),
 			xAxis = d3.svg.axis().scale(x).tickSize(0).tickPadding(6).orient("bottom"),
+			yAxis = d3.svg.axis().scale(y).tickSize(0).tickPadding(6).orient("left"),
 			svg = d3.select("#graph").append("svg")
 				.attr("width", width + margin.left + margin.right)
 				.attr("height", height + margin.top + margin.bottom).append("g")
@@ -69,7 +70,11 @@
     		.attr("class", "x axis")
    			.attr("transform", "translate(0," + height + ")")
     		.call(xAxis);
-		
+    		
+    	svg.append("g").attr("class", "y axis")
+    		.call(yAxis).append("text")
+    		.attr("transform", "rotate(-90)");
+
 		d3.selectAll("input").on("change", change);
 	
 		function change() {
@@ -87,6 +92,7 @@
     			.transition()
      			.attr("y", function(d) { return y(d.y); })
       			.attr("height", function(d) { return height - y(d.y); });
+      		refreshAxis();
 		};
 		
 		function transitionStacked() {
@@ -99,12 +105,20 @@
     			.transition()
       			.attr("x", function(d) { return x(d.x); })
       			.attr("width", x.rangeBand());
+      		refreshAxis();
 		};
+		
+		function refreshAxis(){
+			d3.select(".axis.y").remove();
+      		svg.append("g").attr("class", "y axis")
+    			.call(yAxis).append("text")
+    			.attr("transform", "rotate(-90)");
+		}
 		
 		function parseCrimeData(samples, label){		
 			var i, vals = [], label = crime_labels[current_crime];
 			for(i = 0; i < samples; i++){
-				vals[i] = { x: i, y: data[label][i] }
+				vals[i] = { x: i + 2006, y: data[label][i] }
 			}
 			current_crime++;
 			return vals;
