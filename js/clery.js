@@ -115,7 +115,7 @@
     			.attr("transform", "rotate(-90)");
 		}
 		
-		function parseCrimeData(samples, label){		
+		function parseCrimeData(samples){		
 			var i, vals = [], label = crime_labels[current_crime];
 			for(i = 0; i < samples; i++){
 				vals[i] = { x: i + 2006, y: data[label][i] }
