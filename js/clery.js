@@ -5,11 +5,7 @@
 	
 	$(document).ready(function(){
 		global.app = new App();
-		$.ajax({
-			url : "http://dailyemerald.github.com:/clery-vis/data.json",
-			dataType : "json",
-			success : global.app.init
-		});
+		global.app.init();
 	});
 	
 	var App = function(){
@@ -17,7 +13,7 @@
 			that = {
 			
 			
-				init: function(data){
+				init: function(){
 					graph = new Graph(data["oregon"]);
 				
 				},
@@ -31,12 +27,11 @@
 		return that;
 	};
 	
-	/*
-	 * Creates a new graph on the page from the provided data
-	 */
+	 // Creates a new graph on the page from the provided data
 	var Graph = function(data){
 		// used to track context within parseCrimeData, which is within map(), which doesn't track indices
-		var crime_labels = ["weapons", "drugs", "liquor", "burglary", "sexual_assault", "assault", "vehicle_theft", "arson"],
+		var crime_labels = ["arson", "assault", "burglary", "drugs", "liquor", "sexual_assault", "vehicle_theft", "weapons"],
+			colors = ["#ffaf02", "#868686", "#8d7a0f", "#71b605", "#3546e9", "#9c2ee9", "#d1db29", "#ef2525"],
 			current_crime = 0;
 		// d3 vars
 		var	num_layers = 8,
@@ -45,12 +40,12 @@
 			width = 1100 - margin.left - margin.right,
 			height = 573 - margin.top - margin.bottom,
 			stack = d3.layout.stack(),
-			layers = stack(d3.range(num_layers).map(function() { return parseCrimeData(num_samples); })), // TODO deconstruct bumpLayer
+			layers = stack(d3.range(num_layers).map(function() { return parseCrimeData(num_samples); })),
 			yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); }),
 			yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); }),
 			x = d3.scale.ordinal().domain(d3.range(num_samples)).rangeRoundBands([0, width], .08),
 			y = d3.scale.linear().domain([0, yStackMax]).range([height, 0]),
-			color = d3.scale.linear().domain([0, num_layers - 1]).range(["#aad", "#556"]), // TODO fix colors
+			color = d3.scale.ordinal().domain([0, num_layers - 1]).range(colors),
 			xAxis = d3.svg.axis().scale(x).tickSize(0).tickPadding(6).orient("bottom"),
 			svg = d3.select("#graph").append("svg")
 				.attr("width", width + margin.left + margin.right)
@@ -69,6 +64,7 @@
     		.attr("y", function(d) { return y(d.y0 + d.y); })
     		.attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); });
 		
+		
 		svg.append("g")
     		.attr("class", "x axis")
    			.attr("transform", "translate(0," + height + ")")
@@ -78,6 +74,7 @@
 	
 		function change() {
   			this.value === "grouped" ? transitionGrouped() :  transitionStacked();
+  			// TODO add normalization option
 		};
 		
 		function transitionGrouped() {
@@ -104,14 +101,7 @@
       			.attr("width", x.rangeBand());
 		};
 		
-		function parseCrimeData(samples, label){
-			/*
-			 * data = { 
-			 * 	crime_type : [2006 - 2011],
-			 *  crime_type : [2006 - 2011],
-			 *  ... }
-			 */
-			
+		function parseCrimeData(samples, label){		
 			var i, vals = [], label = crime_labels[current_crime];
 			for(i = 0; i < samples; i++){
 				vals[i] = { x: i, y: data[label][i] }
@@ -119,8 +109,6 @@
 			current_crime++;
 			return vals;
 		}
-		
-		
 		
 	};
 	

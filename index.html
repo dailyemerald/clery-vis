@@ -8,19 +8,48 @@
 	<body>
 		<div id="content" >
 			<div id="school-picker" ></div>
-			<div id="graph" ></div>
+			<div id="graph" >
+				<form>
+					<label>
+						<input type="radio" name="mode" value="grouped">
+						Grouped</label>
+					<label>
+						<input type="radio" name="mode" value="stacked" checked>
+						Stacked</label>
+				</form>
+			</div>
 		</div>
-		<script id="school-picker-template" type="text/template" >
-			
-		
-		</script>
+		<script id="school-picker-template" type="text/template" ></script>
 		<script src="http://code.jquery.com/jquery-latest.min.js" ></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" ></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.0.1/d3.v3.min.js" ></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js" ></script>
 		<script src="js/clery.js" ></script>
+		<script>
+			window.data = {
+				oregon : {
+					weapons : [0, 2, 1, 0, 2, 8],
+					drugs : [102, 92, 76, 89, 128, 213],
+					liquor : [165, 134, 174, 192, 244, 227],
+					burglary : [32, 33, 14, 25, 14, 35],
+					sexual_assault : [4, 3, 8, 6, 7, 8],
+					assault : [5, 5, 2, 0, 2, 3],
+					vehicle_theft : [12, 2, 10, 10, 2, 3],
+					arson : [2, 1, 1, 5, 18, 0]
+				},
+				osu : {},
+				stanford : {},
+				cal : {},
+				ucla : {},
+				usc : {},
+				utah : {},
+				colorado : {},
+				asu : {},
+				arizona : {},
+				washington : {},
+				wsu : {}
+			};
+
+		</script>
 	</body>
 </html>
-
-
-
