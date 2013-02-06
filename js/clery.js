@@ -7,7 +7,7 @@
 		global.app = new App();
 		$.ajax({
 			url : "http://dailyemerald.github.com:/clery-vis/data.json",
-			dataType : "jsonp",
+			dataType : "json",
 			success : global.app.init
 		});
 	});
