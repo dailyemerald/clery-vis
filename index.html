@@ -4,50 +4,73 @@
 		<title>Clery Crime Stats</title>
 		<meta charset="utf-8">
 		<link type="text/css" rel="stylesheet" href="css/clery.css" media="all" />
-		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" media="all" />
 	</head>
 	<body>
 		<div id="content" >
-			<div id="school-picker" class="row">
-				<div id="arizona" class="school span1" ><img src="img/arizona.png" /><span>Arizona</span></div>
-				<div id="asu" class="school span1" ><img src="img/asu.png" /><span>ASU</span></div>
-				<div id="cal" class="school span1" ><img src="img/cal.png" /><span>Cal</span></div>
-				<div id="colorado" class="school span1" ><img src="img/colorado.png" /><span>Colorado</span></div>
-				<div id="oregon" class="school span1" ><img src="img/oregon.png" /><span>Oregon</span></div>
-				<div id="osu" class="school span1" ><img src="img/osu.jpg" /><span>OSU</span></div>
-				<div id="stanford" class="school span1" ><img src="img/stanford.png" /><span>Stanford</span></div>
-				<div id="ucla" class="school span1" ><img src="img/ucla.png" /><span>UCLA</span></div>
-				<div id="usc" class="school span1" ><img src="img/usc.png" /><span>USC</span></div>
-				<div id="utah" class="school span1" ><img src="img/utah.png" /><span>Utah</span></div>
-				<div id="washington" class="school span1" ><img src="img/washington.png" /><span>Washington</span></div>
-				<div id="wsu" class="school span1" ><img src="img/wsu.png" /><span>WSU</span></div>
+			<div id="controls" >
+				<div id="arizona" class="school" ><img src="img/arizona.png" /><span>Arizona</span>
+				</div>
+				<div id="asu" class="school" ><img src="img/asu.png" /><span>ASU</span>
+				</div>
+				<div id="cal" class="school" ><img src="img/cal.png" /><span>Cal</span>
+				</div>
+				<div id="colorado" class="school" ><img src="img/colorado.png" /><span>Colorado</span>
+				</div>
+				<div id="oregon" class="school" ><img src="img/oregon.png" /><span>Oregon</span>
+				</div>
+				<div id="osu" class="school" ><img src="img/osu.jpg" /><span>OSU</span>
+				</div>
+				<div id="stanford" class="school" ><img src="img/stanford.png" /><span>Stanford</span>
+				</div>
+				<div id="ucla" class="school" ><img src="img/ucla.png" /><span>UCLA</span>
+				</div>
+				<div id="usc" class="school" ><img src="img/usc.png" /><span>USC</span>
+				</div>
+				<div id="utah" class="school" ><img src="img/utah.png" /><span>Utah</span>
+				</div>
+				<div id="washington" class="school" ><img src="img/washington.png" /><span>Washington</span>
+				</div>
+				<div id="wsu" class="school" ><img src="img/wsu.png" /><span>WSU</span>
+				</div>
 			</div>
-			<div id="graph" class="row" >
-				<form>
-					<label>
-						<input type="radio" name="mode" value="grouped">
-						Grouped</label>
-					<label>
-						<input type="radio" name="mode" value="stacked" checked>
-						Stacked</label>
-				</form>
-			</div>
-			<div id="legend" class="row" >
-				<div class="key" ><img class="color" src="" /><span class="value" ></span></div>
-				<div class="key" ><img class="color" src="" /><span class="value" ></span></div>
-				<div class="key" ><img class="color" src="" /><span class="value" ></span></div>
-				<div class="key" ><img class="color" src="" /><span class="value" ></span></div>
-				<div class="key" ><img class="color" src="" /><span class="value" ></span></div>
-				<div class="key" ><img class="color" src="" /><span class="value" ></span></div>
-				<div class="key" ><img class="color" src="" /><span class="value" ></span></div>
-				<div class="key" ><img class="color" src="" /><span class="value" ></span></div>
+			<div id="main" >
+				<div id="graph" ></div>
+				<div id="sidebar" >
+					<div id="buttons" >
+						<form>
+							<label>
+								<input type="radio" name="mode" value="grouped">
+								Grouped</label>
+							<label>
+								<input type="radio" name="mode" value="stacked" checked>
+								Stacked</label>
+						</form>
+					</div>
+					<div id="legend" >
+						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						</div>
+						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						</div>
+						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						</div>
+						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						</div>
+						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						</div>
+						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						</div>
+						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						</div>
+						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-		<script src="//code.jquery.com/jquery-latest.min.js" ></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" ></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.0.1/d3.v3.min.js" ></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js" ></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js" ></script>
+		<script src="http://code.jquery.com/jquery-latest.min.js" ></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" ></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.0.1/d3.v3.min.js" ></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js" ></script>
 		<script src="js/clery.js" ></script>
 		<script>
 			window.data = {
@@ -73,6 +96,7 @@
 				washington : {},
 				wsu : {}
 			};
+
 		</script>
 	</body>
 </html>
