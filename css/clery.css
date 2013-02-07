@@ -93,7 +93,7 @@ form input {
 }
 
 .school:hover {
-	background: #EFEFEF;
+	background: #DADADA;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-o-border-radius: 5px;
@@ -146,10 +146,15 @@ form input {
 	font-weight: 500;
 }
 
-
-
-
-
+.selected{
+	background: #DADADA;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	border: none 0px;
+	cursor: pointer;
+}
 
 
 

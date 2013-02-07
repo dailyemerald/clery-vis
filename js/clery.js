@@ -2,16 +2,16 @@
 	/*
 	 * Adapted from http://bl.ocks.org/3943967
 	 */
-	
+
 	$(document).ready(function(){
 		new App();
 	});
-	
+
 	var App = function(){
 		var height = 468,
 			width = 900,
 			graph = {};
-		
+
 		var change_school = function(){
 			school = $(this).attr("id");
 			$("#graph").fadeOut(300, function(){
@@ -21,18 +21,21 @@
 			});
 			$("#stacked-button").prop("checked", true);
 		};
-		
+
 		$(".school").click(change_school);
 		graph = new Graph(width, height, data["oregon"]);
+		$("#oregon").addClass("selected");
+		$(".school").click(function(){ 
+			$(".selected").removeClass("selected");
+			$(this).addClass("selected"); 
+		});
 	};
-	
+
 	 // Creates a new graph on the page from the provided data
 	var Graph = function(w, h, data){
 		// used to track context within parseCrimeData, which is within map(), which doesn't track indices
 		var crime_labels = ["arson", "assault", "burglary", "drugs", "liquor", "sexual_assault", "vehicle_theft", "weapons"],
-			//colors = ["#d77a4e", "#bd3934", "#c08e3a", "#008b7c", "#809b48", "#008daa", "#924783", "#bb3577"],
 			colors = ["#83bdeb", "#843d99", "#cb1488", "#95b343", "#0066b3", "#ca3225", "#f4b84a", "#ddfd2d"],
-			//            ar         wp          as        bg          dr         lq        vt         sa                               
 			current_crime = 0; 
 		// d3 vars
 		var	num_layers = 8,
@@ -62,13 +65,13 @@
 				.attr("y", height)
 				.attr("width", x.rangeBand())
 				.attr("height", 0);
-			
+
 		rect.transition()
     		.delay(function(d, i) { return i * 10; })
     		.attr("y", function(d) { return y(d.y0 + d.y); })
     		.attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); });
-		
-		
+
+
 		svg.append("g")
     		.attr("class", "x axis")
    			.attr("transform", "translate(0," + height + ")")
@@ -76,15 +79,19 @@
     		
     	svg.append("g").attr("class", "y axis")
     		.call(yAxis).append("text")
-    		.attr("transform", "rotate(-90)");
+    		.attr("transform", "rotate(-90)")
+    		.attr("y", 6)
+    		.attr("dy", ".71em")
+    		.style("text-anchor", "end")
+    		.text("Crimes");
 
 		d3.selectAll("input").on("change", change);
-	
+
 		function change() {
   			this.value === "grouped" ? transitionGrouped() :  transitionStacked();
   			// TODO add normalization option
 		};
-		
+
 		function transitionGrouped() {
   			y.domain([0, yGroupMax]);
   			rect.transition()
@@ -97,7 +104,7 @@
       			.attr("height", function(d) { return height - y(d.y); });
       		refreshAxis();
 		};
-		
+
 		function transitionStacked() {
   			y.domain([0, yStackMax]);
   			rect.transition()
@@ -110,14 +117,18 @@
       			.attr("width", x.rangeBand());
       		refreshAxis();
 		};
-		
+
 		function refreshAxis(){
 			d3.select(".axis.y").remove();
       		svg.append("g").attr("class", "y axis")
     			.call(yAxis).append("text")
-    			.attr("transform", "rotate(-90)");
+    			.attr("transform", "rotate(-90)")
+    			.attr("y", 6)
+    			.attr("dy", ".7em")
+    			.style("text-anchor", "end")
+    			.text("Crimes");
 		};
-		
+
 		function parseCrimeData(samples){		
 			var i, vals = [], label = crime_labels[current_crime];
 			for(i = 0; i < samples; i++){
@@ -126,11 +137,11 @@
 			current_crime++;
 			return vals;
 		};
-		
+
 	};
-	
-	
-	
-		
-	
+
+
+
+
+
 }(this));
