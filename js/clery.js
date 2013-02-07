@@ -8,8 +8,8 @@
 	});
 
 	var App = function(){
-		var height = 468,
-			width = 890,
+		var height = 458,
+			width = 880,
 			graph = {};
 
 		var change_school = function(){

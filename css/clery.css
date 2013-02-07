@@ -81,7 +81,7 @@ form input {
 .school {
 	display: inline-block;
 	padding: 6px 10px 6px 10px;
-	margin: 0 2px 0 2px;
+	margin: 0 1px 0 1px;
 	text-align: center;
 }
 
@@ -126,7 +126,7 @@ form input {
 #graph {
 	float: left;
 	position: relative;
-	width: 900px;
+	width: 880px;
 }
 
 #legend {
