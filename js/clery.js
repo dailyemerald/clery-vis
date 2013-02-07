@@ -9,7 +9,7 @@
 
 	var App = function(){
 		var height = 468,
-			width = 900,
+			width = 890,
 			graph = {};
 
 		var change_school = function(){
