@@ -19,6 +19,7 @@
 				graph = new Graph(width, height, data[school]);
 				$("#graph").fadeIn(300);
 			});
+			$("#stacked-button").prop("checked", true);
 		};
 		
 		$(".school").click(change_school);
@@ -29,8 +30,10 @@
 	var Graph = function(w, h, data){
 		// used to track context within parseCrimeData, which is within map(), which doesn't track indices
 		var crime_labels = ["arson", "assault", "burglary", "drugs", "liquor", "sexual_assault", "vehicle_theft", "weapons"],
-			colors = ["#ffaf02", "#868686", "#8d7a0f", "#71b605", "#3546e9", "#9c2ee9", "#d1db29", "#ef2525"],
-			current_crime = 0;
+			//colors = ["#d77a4e", "#bd3934", "#c08e3a", "#008b7c", "#809b48", "#008daa", "#924783", "#bb3577"],
+			colors = ["#83bdeb", "#843d99", "#cb1488", "#95b343", "#0066b3", "#ca3225", "#f4b84a", "#ddfd2d"],
+			//            ar         wp          as        bg          dr         lq        vt         sa                               
+			current_crime = 0; 
 		// d3 vars
 		var	num_layers = 8,
 			num_samples = 6,
@@ -43,7 +46,7 @@
 			yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); }),
 			x = d3.scale.ordinal().domain(d3.range(2006, 2006 + num_samples)).rangeRoundBands([0, width], .08),
 			y = d3.scale.linear().domain([0, yStackMax]).range([height, 0]),
-			color = d3.scale.linear().domain([0, num_layers - 1]).range(["#CCC", "#222"]),
+			color = d3.scale.ordinal().domain([0, num_layers - 1]).range(colors),
 			xAxis = d3.svg.axis().scale(x).tickSize(0).tickPadding(6).orient("bottom"),
 			yAxis = d3.svg.axis().scale(y).tickSize(0).tickPadding(6).orient("left"),
 			svg = d3.select("#graph").append("svg")

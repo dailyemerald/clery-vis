@@ -7,62 +7,70 @@
 	</head>
 	<body>
 		<div id="content" >
-			<div id="controls" >
-				<div id="arizona" class="school" ><img src="img/arizona.png" /><span>Arizona</span>
-				</div>
-				<div id="asu" class="school" ><img src="img/asu.png" /><span>ASU</span>
-				</div>
-				<div id="cal" class="school" ><img src="img/cal.png" /><span>Cal</span>
-				</div>
-				<div id="colorado" class="school" ><img src="img/colorado.png" /><span>Colorado</span>
-				</div>
-				<div id="oregon" class="school" ><img src="img/oregon.png" /><span>Oregon</span>
-				</div>
-				<div id="osu" class="school" ><img src="img/osu.jpg" /><span>OSU</span>
-				</div>
-				<div id="stanford" class="school" ><img src="img/stanford.png" /><span>Stanford</span>
-				</div>
-				<div id="ucla" class="school" ><img src="img/ucla.png" /><span>UCLA</span>
-				</div>
-				<div id="usc" class="school" ><img src="img/usc.png" /><span>USC</span>
-				</div>
-				<div id="utah" class="school" ><img src="img/utah.png" /><span>Utah</span>
-				</div>
-				<div id="washington" class="school" ><img src="img/washington.png" /><span>Washington</span>
-				</div>
-				<div id="wsu" class="school" ><img src="img/wsu.png" /><span>WSU</span>
-				</div>
-			</div>
 			<div id="main" >
 				<div id="graph" ></div>
 				<div id="sidebar" >
+					<div id="headline" >Clery Act campus crime data for Pac-12 schools since 2006</div>
+					<div id="copy" >
+					The numbers represent arrests and crimes on Pac-12 campuses from 2006-11. For this interactive, we used self-reported data collected by the<a href="http://ope.ed.gov/security/" > Office of Postsecondary Education of the U.S. Department of Education.</a>
+					<br /><br />
+					The graph shows events that resulted in criminal charges in court. Disciplinary action that does not result in criminal charges were left off the graph.
+					</div>
+					<div id="label" >CHOOSE YOUR VIEW</div>
 					<div id="buttons" >
 						<form>
 							<label>
-								<input type="radio" name="mode" value="grouped">
-								Grouped</label>
-							<label>
-								<input type="radio" name="mode" value="stacked" checked>
-								Stacked</label>
+								<input id="grouped-button" type="radio" name="mode" value="grouped">
+								By crime</label>
+							<label><br />
+								<input id="stacked-button" type="radio" name="mode" value="stacked" checked>
+								By year</label>
 						</form>
 					</div>
+					<div id="label" >LEGEND</div>
 					<div id="legend" >
-						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						<div class="key first" ><img class="color" src="img/83bdeb.png" /><span class="value" >Arson</span>
 						</div>
-						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						<div class="key" ><img class="color" src="img/cb1488.png" /><span class="value" >Assault</span>
 						</div>
-						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						<div class="key" ><img class="color" src="img/95b343.png" /><span class="value" >Burglary</span>
 						</div>
-						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						<div class="key" ><img class="color" src="img/0066b3.png" /><span class="value" >Drugs</span>
 						</div>
-						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						<div class="key" ><img class="color" src="img/ca3225.png" /><span class="value" >Liquor</span>
 						</div>
-						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						<div class="key" ><img class="color" src="img/ddfd2d.png" /><span class="value" >Sexual assault</span>
 						</div>
-						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						<div class="key" ><img class="color" src="img/f4b84a.png" /><span class="value" >Vehicle theft</span>
 						</div>
-						<div class="key" ><img class="color" src="" /><span class="value" ></span>
+						<div class="key last" ><img class="color" src="img/843d99.png" /><span class="value" >Weapons</span>
 						</div>
+					</div>
+				</div>
+				<div id="controls" >
+					<div id="arizona" class="school" ><img src="img/arizona.png" /><span>Arizona</span>
+					</div>
+					<div id="asu" class="school" ><img src="img/asu.png" /><span>ASU</span>
+					</div>
+					<div id="cal" class="school" ><img src="img/cal.png" /><span>Cal</span>
+					</div>
+					<div id="colorado" class="school" ><img src="img/colorado.png" /><span>Colorado</span>
+					</div>
+					<div id="oregon" class="school" ><img src="img/oregon.png" /><span>Oregon</span>
+					</div>
+					<div id="osu" class="school" ><img src="img/osu.jpg" /><span>OSU</span>
+					</div>
+					<div id="stanford" class="school" ><img src="img/stanford.png" /><span>Stanford</span>
+					</div>
+					<div id="ucla" class="school" ><img src="img/ucla.png" /><span>UCLA</span>
+					</div>
+					<div id="usc" class="school" ><img src="img/usc.png" /><span>USC</span>
+					</div>
+					<div id="utah" class="school" ><img src="img/utah.png" /><span>Utah</span>
+					</div>
+					<div id="washington" class="school" ><img src="img/washington.png" /><span>Washington</span>
+					</div>
+					<div id="wsu" class="school" ><img src="img/wsu.png" /><span>WSU</span>
 					</div>
 				</div>
 			</div>
@@ -75,28 +83,139 @@
 		<script>
 			window.data = {
 				oregon : {
-					weapons : [0, 2, 1, 0, 2, 8],
+					arson : [2, 1, 1, 5, 18, 0],
+					assault : [5, 5, 2, 0, 2, 3],
+					burglary : [32, 33, 14, 25, 14, 35],
 					drugs : [102, 92, 76, 89, 128, 213],
 					liquor : [165, 134, 174, 192, 244, 227],
-					burglary : [32, 33, 14, 25, 14, 35],
 					sexual_assault : [4, 3, 8, 6, 7, 8],
-					assault : [5, 5, 2, 0, 2, 3],
 					vehicle_theft : [12, 2, 10, 10, 2, 3],
-					arson : [2, 1, 1, 5, 18, 0]
+					weapons : [0, 2, 1, 0, 2, 8]
 				},
-				osu : {},
-				stanford : {},
-				cal : {},
-				ucla : {},
-				usc : {},
-				utah : {},
-				colorado : {},
-				asu : {},
-				arizona : {},
-				washington : {},
-				wsu : {}
+				osu : {
+					arson : [2, 0, 0, 0, 1, 1],
+					assault : [0, 2, 1, 0, 1, 3],
+					burglary : [50, 43, 41, 28, 36, 36],
+					drugs : [33, 70, 86, 71, 66, 56],
+					liquor : [214, 414, 335, 297, 288, 192],
+					sexual_assault : [0, 4, 12, 4, 9, 3],
+					vehicle_theft : [9, 6, 12, 9, 11, 28],
+					weapons : [0, 8, 1, 4, 0, 0]
+				},
+				stanford : {
+					arson : [2, 6, 6, 1, 1, 5],
+					assault : [11, 10, 9, 5, 4, 2],
+					burglary : [107, 137, 174, 146, 180, 101],
+					drugs : [23, 33, 38, 45, 27, 20],
+					liquor : [38, 81, 62, 113, 31, 40],
+					sexual_assault : [10, 12, 10, 10, 21, 12],
+					vehicle_theft : [46, 34, 35, 15, 14, 20],
+					weapons : [1, 1, 1, 2, 1, 2]
+				},
+				cal : {
+					arson : [1, 11, 3, 12, 9, 6],
+					assault : [10, 11, 22, 14, 8, 7],
+					burglary : [77, 74, 54, 48, 63, 40],
+					drugs : [164, 122, 83, 103, 115, 177],
+					liquor : [269, 274, 186, 188, 147, 159],
+					sexual_assault : [8, 4, 11, 5, 6, 30],
+					vehicle_theft : [14, 12, 8, 14, 13, 14],
+					weapons : [17, 18, 22, 24, 20, 27]
+				},
+				ucla : {
+					arson : [0, 1, 1, 0, 2, 0],
+					assault : [5, 7, 2, 9, 2, 4],
+					burglary : [131, 163, 123, 111, 125, 118],
+					drugs : [22, 15, 18, 31, 24, 10],
+					liquor : [5, 21, 3, 12, 5, 0],
+					sexual_assault : [9, 13, 31, 11, 21, 8],
+					vehicle_theft : [27, 21, 23, 14, 14, 7],
+					weapons : [6, 4, 3, 2, 6, 7]
+				},
+				usc : {
+					arson : [0, 3, 0, 2, 2, 2],
+					assault : [9, 6, 7, 1, 5, 1],
+					burglary : [76, 43, 60, 22, 34, 50],
+					drugs : [4, 19, 8, 11, 29, 17],
+					liquor : [0, 0, 3, 1, 1, 6],
+					sexual_assault : [16, 0, 6, 9, 5, 7],
+					vehicle_theft : [20, 12, 19, 8, 0, 1],
+					weapons : [3, 2, 0, 5, 7, 1]
+				},
+				utah : {
+					arson : [4, 0, 1, 1, 0, 0],
+					assault : [0, 1, 2, 2, 0, 3],
+					burglary : [3, 25, 25, 33, 37, 90],
+					drugs : [6, 6, 13, 18, 20, 21],
+					liquor : [14, 13, 13, 19, 20, 21],
+					sexual_assault : [1, 2, 5, 3, 4, 5],
+					vehicle_theft : [0, 0, 0, 0, 0, 0],
+					weapons : [0, 0, 1, 0, 0, 0]
+				},
+				colorado : {
+					arson : [21, 7, 7, 2, 4, 1],
+					assault : [16, 7, 7, 5, 2, 8],
+					burglary : [103, 54, 59, 60, 27, 42],
+					drugs : [92, 81, 82, 137, 351, 442],
+					liquor : [380, 470, 523, 692, 710, 767],
+					sexual_assault : [10, 8, 7, 9, 4, 6],
+					vehicle_theft : [13, 5, 4, 1, 5, 10],
+					weapons : [5, 2, 6, 3, 0, 3]
+				},
+				asu : {
+					arson : [2, 4, 6, 0, 6, 9],
+					assault : [20, 16, 15, 20, 12, 17],
+					burglary : [129, 119, 116, 119, 95, 70],
+					drugs : [173, 120, 166, 162, 214, 164],
+					liquor : [353, 237, 512, 459, 553, 509],
+					sexual_assault : [8, 6, 3, 3, 6, 13],
+					vehicle_theft : [70, 67, 51, 29, 18, 16],
+					weapons : [5, 0, 1, 1, 0, 0]
+				},
+				arizona : {
+					arson : [1, 0, 0, 0, 2, 2],
+					assault : [7, 1, 6, 1, 3, 0],
+					burglary : [34, 43, 38, 26, 30, 43],
+					drugs : [70, 71, 90, 74, 180, 104],
+					liquor : [66, 53, 144, 181, 317, 320],
+					sexual_assault : [2, 8, 1, 5, 1, 3],
+					vehicle_theft : [0, 0, 0, 21, 25, 6],
+					weapons : [0, 0, 0, 1, 1, 0]
+				},
+				washington : {
+					arson : [4, 3, 0, 2, 4, 0],
+					assault : [4, 7, 1, 6, 1, 3],
+					burglary : [87, 70, 75, 83, 56, 40],
+					drugs : [26, 34, 47, 4, 9, 11],
+					liquor : [34, 33, 55, 24, 31, 14],
+					sexual_assault : [2, 0, 2, 0, 4, 5],
+					vehicle_theft : [31, 33, 19, 8, 9, 1],
+					weapons : [0, 0, 2, 5, 1, 1]
+				},
+				wsu : {
+					arson : [4, 0, 7, 2, 1, 0],
+					assault : [1, 0, 1, 7, 3, 2],
+					burglary : [31, 30, 27, 23, 21, 25],
+					drugs : [124, 109, 121, 122, 128, 179],
+					liquor : [217, 174, 175, 188, 216, 196],
+					sexual_assault : [7, 4, 3, 8, 6, 8],
+					vehicle_theft : [3, 1, 1, 1, 3, 4],
+					weapons : [0, 2, 1, 1, 1, 3]
+				}
 			};
-
 		</script>
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
