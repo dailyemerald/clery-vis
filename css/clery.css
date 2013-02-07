@@ -29,8 +29,8 @@ body{
 	display: block;
 	width: 1100px;
 	height: 60px;
-	padding: 10px 0 10px 0;
-	margin-bottom: 5px;
+	padding: 0 0 10px 0;
+	margin-bottom: 15px;
 }
 
 #main {
@@ -81,7 +81,7 @@ form input {
 .school {
 	display: inline-block;
 	padding: 6px 10px 6px 10px;
-	margin: 0 1px 0 1px;
+	margin-left: 1px;
 	text-align: center;
 }
 
@@ -126,7 +126,7 @@ form input {
 #graph {
 	float: left;
 	position: relative;
-	width: 880px;
+	width: 870px;
 }
 
 #legend {
