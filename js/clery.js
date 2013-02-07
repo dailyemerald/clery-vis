@@ -40,7 +40,7 @@
 		// d3 vars
 		var	num_layers = 8,
 			num_samples = 6,
-			margin = { top: 40, right: 10, bottom: 20, left: 30 },
+			margin = { top: 40, right: 5, bottom: 20, left: 35 },
 			width = w - margin.left - margin.right,
 			height = h - margin.top - margin.bottom,
 			stack = d3.layout.stack(),
